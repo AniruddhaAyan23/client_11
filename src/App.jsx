@@ -12,3 +12,16 @@ import Login from './pages/Login';
 import RegisterEmployee from './pages/RegisterEmployee';
 import RegisterHR from './pages/RegisterHR';
 import NotFound from './pages/NotFound';
+
+import MyAssets from './pages/employee/MyAssets';
+import RequestAsset from './pages/employee/RequestAsset';
+import MyTeam from './pages/employee/MyTeam';
+import EmployeeProfile from './pages/employee/Profile';
+
+// HR Pages
+import AssetList from './pages/hr/AssetList';
+import AddAsset from './pages/hr/AddAsset';
+import AllRequests from './pages/hr/AllRequests';
+import EmployeeList from './pages/hr/EmployeeList';
+import UpgradePackage from './pages/hr/UpgradePackage';
+import HRProfile from './pages/hr/Profile';
