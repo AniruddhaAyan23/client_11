@@ -39,3 +39,11 @@ export const assetAPI = {
   deleteAsset: (id) => api.delete(`/api/assets/${id}`),
   getAssetStats: () => api.get('/api/assets/stats/overview')
 };
+export const requestAPI = {
+  createRequest: (data) => api.post('/api/requests', data),
+  getHRRequests: (params) => api.get('/api/requests/hr-requests', { params }),
+  getMyRequests: () => api.get('/api/requests/my-requests'),
+  approveRequest: (id) => api.put(`/api/requests/${id}/approve`),
+  rejectRequest: (id) => api.put(`/api/requests/${id}/reject`),
+  returnAsset: (assignmentId) => api.put(`/api/requests/return/${assignmentId}`)
+};
