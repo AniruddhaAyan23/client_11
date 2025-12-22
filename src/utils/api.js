@@ -59,3 +59,8 @@ export const packageAPI = {
   getAllPackages: () => api.get('/api/packages'),
   getMyPackage: () => api.get('/api/packages/my-package')
 };
+export const paymentAPI = {
+  createPaymentIntent: (data) => api.post('/api/payments/create-payment-intent', data),
+  confirmPayment: (data) => api.post('/api/payments/confirm-payment', data),
+  getPaymentHistory: () => api.get('/api/payments/history')
+};
