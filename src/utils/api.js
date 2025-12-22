@@ -47,3 +47,11 @@ export const requestAPI = {
   rejectRequest: (id) => api.put(`/api/requests/${id}/reject`),
   returnAsset: (assignmentId) => api.put(`/api/requests/return/${assignmentId}`)
 };
+export const employeeAPI = {
+  getMyAssets: (params) => api.get('/api/employees/my-assets', { params }),
+  getMyTeam: () => api.get('/api/employees/my-team'),
+  getTeamBirthdays: () => api.get('/api/employees/team-birthdays'),
+  getMyAffiliations: () => api.get('/api/employees/my-affiliations'),
+  getHREmployees: (params) => api.get('/api/employees/hr-employees', { params }),
+  removeEmployee: (email) => api.delete(`/api/employees/remove/${email}`)
+};
