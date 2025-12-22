@@ -64,3 +64,16 @@ export const paymentAPI = {
   confirmPayment: (data) => api.post('/api/payments/confirm-payment', data),
   getPaymentHistory: () => api.get('/api/payments/history')
 };
+export const uploadImage = async (imageFile) => {
+  const formData = new FormData();
+  formData.append('image', imageFile);
+
+  const response = await axios.post(
+    `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_API_KEY}`,
+    formData
+  );
+
+  return response.data.data.url;
+};
+
+export default api;
