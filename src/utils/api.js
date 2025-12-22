@@ -55,3 +55,7 @@ export const employeeAPI = {
   getHREmployees: (params) => api.get('/api/employees/hr-employees', { params }),
   removeEmployee: (email) => api.delete(`/api/employees/remove/${email}`)
 };
+export const packageAPI = {
+  getAllPackages: () => api.get('/api/packages'),
+  getMyPackage: () => api.get('/api/packages/my-package')
+};
