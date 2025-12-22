@@ -30,3 +30,12 @@ api.interceptors.response.use(
     return Promise.reject(error);
   }
 );
+export const assetAPI = {
+  addAsset: (data) => api.post('/api/assets', data),
+  getHRAssets: (params) => api.get('/api/assets/hr-assets', { params }),
+  getAvailableAssets: (params) => api.get('/api/assets/available', { params }),
+  getAssetById: (id) => api.get(`/api/assets/${id}`),
+  updateAsset: (id, data) => api.put(`/api/assets/${id}`, data),
+  deleteAsset: (id) => api.delete(`/api/assets/${id}`),
+  getAssetStats: () => api.get('/api/assets/stats/overview')
+};
