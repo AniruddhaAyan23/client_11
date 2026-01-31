@@ -7,12 +7,15 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import PrivateRoute from './components/PrivateRoute';
 import HRRoute from './components/HRRoute';
+
+// Public Pages
 import Home from './pages/Home';
 import Login from './pages/Login';
 import RegisterEmployee from './pages/RegisterEmployee';
 import RegisterHR from './pages/RegisterHR';
 import NotFound from './pages/NotFound';
 
+// Employee Pages
 import MyAssets from './pages/employee/MyAssets';
 import RequestAsset from './pages/employee/RequestAsset';
 import MyTeam from './pages/employee/MyTeam';
@@ -25,6 +28,7 @@ import AllRequests from './pages/hr/AllRequests';
 import EmployeeList from './pages/hr/EmployeeList';
 import UpgradePackage from './pages/hr/UpgradePackage';
 import HRProfile from './pages/hr/Profile';
+
 function App() {
   return (
     <AuthProvider>
