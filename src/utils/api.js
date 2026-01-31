@@ -1,4 +1,3 @@
-
 import axios from 'axios';
 
 const API_URL = import.meta.env.VITE_API_URL;
@@ -10,6 +9,8 @@ const api = axios.create({
     'Content-Type': 'application/json'
   }
 });
+
+// Add token to requests
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('token');
@@ -20,6 +21,8 @@ api.interceptors.request.use(
   },
   (error) => Promise.reject(error)
 );
+
+// Handle token expiration
 api.interceptors.response.use(
   (response) => response,
   (error) => {
@@ -30,6 +33,8 @@ api.interceptors.response.use(
     return Promise.reject(error);
   }
 );
+
+// Asset APIs
 export const assetAPI = {
   addAsset: (data) => api.post('/api/assets', data),
   getHRAssets: (params) => api.get('/api/assets/hr-assets', { params }),
@@ -39,6 +44,8 @@ export const assetAPI = {
   deleteAsset: (id) => api.delete(`/api/assets/${id}`),
   getAssetStats: () => api.get('/api/assets/stats/overview')
 };
+
+// Request APIs
 export const requestAPI = {
   createRequest: (data) => api.post('/api/requests', data),
   getHRRequests: (params) => api.get('/api/requests/hr-requests', { params }),
@@ -47,6 +54,8 @@ export const requestAPI = {
   rejectRequest: (id) => api.put(`/api/requests/${id}/reject`),
   returnAsset: (assignmentId) => api.put(`/api/requests/return/${assignmentId}`)
 };
+
+// Employee APIs
 export const employeeAPI = {
   getMyAssets: (params) => api.get('/api/employees/my-assets', { params }),
   getMyTeam: () => api.get('/api/employees/my-team'),
@@ -55,15 +64,21 @@ export const employeeAPI = {
   getHREmployees: (params) => api.get('/api/employees/hr-employees', { params }),
   removeEmployee: (email) => api.delete(`/api/employees/remove/${email}`)
 };
+
+// Package APIs
 export const packageAPI = {
   getAllPackages: () => api.get('/api/packages'),
   getMyPackage: () => api.get('/api/packages/my-package')
 };
+
+// Payment APIs
 export const paymentAPI = {
   createPaymentIntent: (data) => api.post('/api/payments/create-payment-intent', data),
   confirmPayment: (data) => api.post('/api/payments/confirm-payment', data),
   getPaymentHistory: () => api.get('/api/payments/history')
 };
+
+// Image upload to ImgBB
 export const uploadImage = async (imageFile) => {
   const formData = new FormData();
   formData.append('image', imageFile);
